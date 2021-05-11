@@ -1,0 +1,35 @@
+<html>
+<head>
+<title>Win LPE Task</title>
+<body>
+<h2> WTF </h2>
+The goal is to read flags from C:\ of the windows machine (see <a href='/machine.ova'>OVA File</a>):
+<ul>
+    <li> C:\flag_warmup.txt : 100 points </li>
+    <li> C:\flag_cve_easy.txt : 300 points</li>
+    <li> C:\flag_cve_hard.txt : 600 points</li>
+</ul>
+After looking at the OVA file and figuring out how you can read those files from a non-admin account, 
+you'll need to create a windows x64 executable that automates the attack. NB: the password for user and admin accounts in the OVA is P@ssw0rd1234.<br>
+The passwords are changed in the real machine, as well as flag file contents. Other than that the real machine is idential to the OVA above<br>
+Your binary will be executed as user "user" and given 3 minutes of running time.<br>
+You'll be able to see the output once the binary is executed (Use the check button below and the UUID you got when submitting).<br>
+The machine is reset to a snapshot before each run, so your exploit will need to do everything in one go.<br>
+Please do not submit too many executables - the execution queue is shared by all participants and has limited capabilities (10-15 minutes per submission, because the VM needs to boot every time)<br>
+The /submit is rate-limited to 1 request per IP per minute, if you submit more frequently, you'll get HTTP 503. In this case, just wait a little and retry <br>
+If a submission is in "IN_PROGRESS" state for a long time (say, 20 minutes), please report to @webpentest.
+<h2>Submit exploit</h2>
+<form action='/submit' method="POST" enctype='multipart/form-data'>
+Name (will be visible by anyone): <input name=name type=text /> <br>
+File: <input name=file type=file /> <br>
+<input type=submit value='Submit'><br>
+</form>
+<h2>Check exploit</h2>
+
+<form action='/check' method="GET">
+<input name=uuid type=text />
+<input type=submit value='Check'>
+</form><br>
+
+<h2><a href=/stats>Public stats</a></h2>
+</body>
